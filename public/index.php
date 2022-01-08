@@ -1,6 +1,10 @@
 <?php
 define('BASE_PATH', __DIR__ . '/../');
 
+//header("Content-Type: application/json");
+//echo json_encode($_SERVER);
+//die;
+
 require_once BASE_PATH . 'vendor/autoload.php';
 
 

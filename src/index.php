@@ -1,9 +1,9 @@
 <?php
 
-$route_path = $_SERVER['PATH_INFO'];
+$route_path = $_SERVER['PATH_INFO'] ?? $_SERVER['REQUEST_URI'];
 $method     = $_SERVER['REQUEST_METHOD'];
 
-if($route_path == '') {
+if($route_path == '' || $route_path == '/') {
     return require_once BASE_PATH . 'src/controllers/home.php';
 
 } else if(preg_match("/\/app(.*)/", $route_path)) {
