@@ -97,6 +97,16 @@ $(document).ready(function() {
     }
 
     function play() {
+        let is_disabled = $('#exec').prop('disabled');
+        
+        if(is_disabled) {
+            return;
+        } else {
+            $('#exec').prop('disabled', true);
+        }
+
+        $('#exec').html('<i class="fa fa-spinner fa-spin"></i>');
+
         let method = $('#method').val();
 
         let url = build_url();
@@ -123,10 +133,15 @@ $(document).ready(function() {
         }).then(function(response) {
             console.log(response)
             setStatus(response.request);
-            responseContainer.setValue(JSON.stringify(response.data, null, 4), 1)
+            responseContainer.setValue(JSON.stringify(response.data, null, 4), 1);
+            
+            $('#exec').prop('disabled', false);
+            $('#exec').html('<i class="fa fa-play"></i>');
         }).catch(function(error) {
             setStatus(error.response.request);
             console.log(error)
+            $('#exec').prop('disabled', false);
+            $('#exec').html('<i class="fa fa-play"></i>');
         });
     }
 
