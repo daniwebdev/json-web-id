@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>JSON.WEB.ID - Just for experiment</title>
+    <meta name="author" content="Muhamad Yusup Hamdani <me@dani.work>">
+
+    <!-- SEO Tags -->
+    <meta name="description" content="JSON.WEB.ID - Just for experiment">
+    <meta name="keywords" content="JSON, JSON.WEB.ID, JSON - Just for experiment">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="googlebot-news" content="index, follow">
+    <meta name="googlebot-image" content="index, follow">
+    <meta name="googlebot-video" content="index, follow">
+    <meta name="googlebot-ads" content="index, follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="copyright" content="Muhamad Yusup Hamdani me@dani.work">
+    <link rel="icon" href="https://dani.work/blog/wp-content/uploads/2020/09/cropped-cropped-Webp.net-resizeimage-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://dani.work/blog/wp-content/uploads/2020/09/cropped-cropped-Webp.net-resizeimage-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://dani.work/blog/wp-content/uploads/2020/09/cropped-cropped-Webp.net-resizeimage-180x180.png" />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="JSON.WEB.ID - Just for experiment">
+    <meta property="og:description" content="You can make application with customized object format, like no sql but using REST API, happy coding..!">
+    <meta property="og:image" content="https://json.web.id/image.webp">
+    <meta property="og:url" content="https://json.web.id/">
+    <meta property="og:site_name" content="json.web.id">
+    <meta property="og:type" content="website">
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<div class="p-5 bg-light">
+    <div class="container">
+        <h1 class="display-3" style="border-radius: 10px;"><span class="bg-success text-light rounded px-2">{ JSON }</span>.WEB.ID</h1>
+        <p class="lead">you can make application with customized object format, like no sql but using REST API, happy coding..!</p>
+
+        <h5>Follow Creator</h5>
+        <div class="socmed-link">
+            <a target="_blank" href="//github.com/daniwebdev">
+                <i class="fab fa-github"></i>
+            </a>
+            <a target="_blank" href="//instagram.com/mydan3">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a target="_blank" href="//instagram.com/daniwebdev">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-3">
+    <div class="text-danger mb-3">
+        <span class="badge bg-danger" id="warning">
+            <i class="fas fa-info-circle    "></i> Database will be reset every 00:00 UTC+7
+        </span>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            Playground
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="key">Header: x-api-key (optional)</label>
+                        <input type="text" class="form-control" id="key" placeholder="your own key">
+                        <small>
+                            <span class="text-muted">
+                                <i class="fas fa-info-circle"></i> 
+                                if you fill in the key, then your data will not be mixed with other users
+                            </span>
+                        </small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="key">Path: namespace (optional)</label>
+                        <input type="text" class="form-control" id="namespace" placeholder="your_name_space">
+                        <small>
+                            <span class="text-muted">
+                                <i class="fa fa-info-circle"></i> 
+                                You can create different apps with the same key.
+                            </span>
+                        </small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="method">Method</label>
+                        <select name="method" id="method" class="form-control">
+                            <option value="GET">GET (get data)</option>
+                            <option value="POST">POST (add data)</option>
+                            <option value="PUT">PUT (update data)</option>
+                            <option value="DELETE">DELETE (destroy data)</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="key">Query</label>
+                        <input style="display: show;" id="query" type="text" class="form-control" placeholder="uuid=8b65e430-04ad-43f7-a16a-77f1afd1daca&params2=value2">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="key">Body</label>
+                        <div id="body" class="rounded pt-2" style="height: 200px;">{}</div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 d-flex-inline">
+                    <div>
+                        <label for="key">Execute</label>
+                        <div class="input-group">
+                            <input readonly type="text" class="form-control" value="https://json.web.id/app" id="address">
+                            <button class="btn btn-primary" type="button" id="exec">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card mt-2 rounded">
+                        <div class="rounded-top" id="response" style="height: 300px">{}</div>
+                        <div class="card-footer" style="text-transform: lowercase;">
+                            <label for="">status:</label>
+                            <span id="status-code"></span>
+                            <span id="status-message"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <h3>
+        Please donate to support me.
+    </h3>
+
+    <a href="//paypal.me/daniwebdev" class="btn btn-primary">
+        <img src="https://www.paypalobjects.com/webstatic/icon/favicon.ico" width="24px" alt="" srcset=""> Paypay
+    </a>
+
+    <a href="//saweria.co/coderotodidak" class="btn btn-primary">
+        <img width="24px" src="https://saweria.co/favicon.ico"> Saweria 🇮🇩
+    </a>
+</div>
+
+<div class="container d-flex align-items-center" style="height: 50px;">
+    <div class="text-start">
+        Created by <a href="//me.dani.work">Me</a>
+    </div>
+</div>
+
+<!-- Bootstrap JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script src="https://pagecdn.io/lib/ace/1.4.13/ace.min.js" crossorigin="anonymous" integrity="sha256-GjtAsBCI/KPlEYQf0I8yNimcThRoWMnk7Vpi+dUt+GY="></script>
+<script src="https://pagecdn.io/lib/ace/1.4.13/theme-solarized_dark.min.js" crossorigin="anonymous"></script>
+
+<script src="https://pagecdn.io/lib/ace/1.4.13/mode-json.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script defer src="/js/script.js"></script>
+
+</body>
+
+</html>

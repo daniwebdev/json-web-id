@@ -1,0 +1,17 @@
+{
+    "name": "goapi-id/goapi-json",
+    "description": "Dummy json app",
+    "require": {
+        "ext-pdo": "*"
+    },
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "helper.php"
+        ]
+    },
+    "authors": [{
+        "name": "Dani",
+        "email": "dani.webdev@gmail.com"
+    }]
+}
