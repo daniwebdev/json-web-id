@@ -20,6 +20,7 @@ try {
     require_once BASE_PATH . 'src/index.php';
 } catch (\Throwable $th) {
     header('Content-Type: application/json');
+    http_response_code($th->getCode() ?? 500);
     echo json_encode([
         'status' => 'error',
         'message' => $th->getMessage(),

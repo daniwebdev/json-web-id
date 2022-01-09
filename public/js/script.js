@@ -118,7 +118,14 @@ $(document).ready(function() {
         }
 
         if (method == 'POST' || method == 'PUT') {
-            data = JSON.parse(body.getValue());
+            try {
+                data = JSON.parse(body.getValue());
+            } catch (e) {
+                $('#exec').html('<i class="fa fa-play"></i>');
+                $('#exec').prop('disabled', false);
+                alert('Invalid JSON Data');
+                return;
+            }
         }
 
         let setStatus = (req) => {
@@ -140,6 +147,7 @@ $(document).ready(function() {
         }).catch(function(error) {
             setStatus(error.response.request);
             console.log(error)
+            responseContainer.setValue(JSON.stringify(error.response.data, null, 4), 1);
             $('#exec').prop('disabled', false);
             $('#exec').html('<i class="fa fa-play"></i>');
         });
@@ -156,13 +164,16 @@ $(document).ready(function() {
     $('#method').change(function() {
         if ($(this).val() == 'GET' || $(this).val() == 'DELETE') {
             $('#body').parent().hide();
-            $('#query').parent().show();
+            $('#query').parent().show().val('');
+            $('#body').val('{}');
         } else if($(this).val() == "PUT") {
-            $('#body').parent().show();
-            $('#query').parent().show();
+            $('#body').parent().show().val('{}');
+            $('#query').parent().show()
+            $('#query').val('');
+            $('#body').val('{}');
         } else {
             $('#query').parent().hide();
-            $('#body').parent().show();
+            $('#body').parent().show().val('');
             $('#body').val('{}');
         }
     });

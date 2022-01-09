@@ -1,6 +1,5 @@
 <?php
 
-
 function data($kay=null) {
     global $method;
     $data = [];
@@ -14,7 +13,6 @@ function data($kay=null) {
         $data[$key] = $value;
     }
 
-
     //store the data from json
     $json = json_decode(file_get_contents('php://input'), true);
 
@@ -23,8 +21,12 @@ function data($kay=null) {
     }
 
     //store the data from form
-    if($method == 'POST' && count($_POST) > 0) {
-        $data = array_merge($data, $_POST);
+    if($method == 'POST') {
+        if(count($_POST) > 0) {
+            $data = array_merge($data, $_POST);
+        } else {
+            throw new Exception('No data found in POST', 400);
+        }
     }
 
     if($kay != null) {
