@@ -2,7 +2,8 @@
     "name": "goapi-id/goapi-json",
     "description": "Dummy json app",
     "require": {
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "fakerphp/faker": "^1.17"
     },
     "license": "MIT",
     "autoload": {
