@@ -9,6 +9,12 @@ function data($kay=null) {
     foreach($_REQUEST as $key => $value) {
         $data[$key] = $value;
     }
+
+    foreach($_GET as $key => $value) {
+        $data[$key] = $value;
+    }
+
+
     //store the data from json
     $json = json_decode(file_get_contents('php://input'), true);
 
