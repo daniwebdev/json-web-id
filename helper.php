@@ -17,15 +17,18 @@ function data($kay=null) {
     $json = json_decode(file_get_contents('php://input'), true);
 
     if($json != null) {
-        $data = array_merge($data, $json);
+        if(is_array($json)) {
+            $data = array_merge($data, $json);
+        } else {
+            throw new Exception('No data found in POST', 400);
+        }
+
     }
 
     //store the data from form
     if($method == 'POST') {
         if(count($_POST) > 0) {
             $data = array_merge($data, $_POST);
-        } else {
-            throw new Exception('No data found in POST', 400);
         }
     }
 

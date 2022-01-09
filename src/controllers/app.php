@@ -17,6 +17,7 @@ function GET() {
     foreach($query as $row) {
         $data = $row;
         $body = json_decode($row['body'], true);
+
         unset($data['body']);
         unset($data['user_key']);
 
@@ -26,6 +27,7 @@ function GET() {
     }
 
     header('Content-Type: application/json');
+
     echo json_encode([
         'status' => 'success',
         'data' => $output,
@@ -44,6 +46,7 @@ function POST() {
     query("INSERT INTO _data (uuid, body, user_key, created_at, updated_at) VALUES ('$uuid', '$body', '$key', '$now', '$now')", $key);
 
     header('Content-Type: application/json');
+    
     echo json_encode([
         'status' => 'success',
         'message' => 'Data has been added',
