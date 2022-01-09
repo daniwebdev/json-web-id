@@ -30,6 +30,7 @@ function GET() {
 
     echo json_encode([
         'status' => 'success',
+        'message' => 'Data retrieved',
         'data' => $output,
     ]);
 }

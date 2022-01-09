@@ -43,7 +43,7 @@
 
 <div class="p-5 bg-light">
     <div class="container">
-        <h1 class="display-3" style="border-radius: 10px;"><span class="bg-success text-light rounded px-2">{ JSON }</span>.WEB.ID</h1>
+        <h1 class="display-3" style="border-radius: 10px;">{ JSON.WEB.ID }</h1>
         <p class="lead">You can make application with your own propriatary data structure, like no sql but using REST API, happy coding..!</p>
 
         <h5>Follow Creator</h5>
@@ -65,7 +65,7 @@
 <div class="container mt-3">
     <div class="text-danger mb-3">
         <span class="badge bg-danger" id="warning">
-            <i class="fas fa-info-circle    "></i> Database will be reset every 00:00 UTC+7
+            <i class="fas fa-info-circle"></i> Database will be reset every 00:00 UTC+7
         </span>
     </div>
 
@@ -144,6 +144,206 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="container mt-3">
+    <h2>How to use</h2>
+    <h2 class="fs-5">
+        Header: x-api-key (optional)
+    </h2>
+    <p>
+        <span class="text-muted">
+            <i class="fas fa-info-circle"></i> 
+            if you fill in the key, then your data will not be mixed with other users
+        </span>
+    </p>
+    <hr>
+    <ul class="list-routes">
+        <li>
+            <div class="route-item">
+                <span class="route-method">[GET]</span>
+                <span class="route-path">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="mt-2 fs-5">Params</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>namespace</td>
+                                <td>string</td>
+                                <td>your own namespace if you want to make some apps or modules</td>
+                            </tr>
+                            <tr>
+                                <td>uuid</td>
+                                <td>string</td>
+                                <td>if you want get with spesific uuid</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="mt-2 fs-5">Response Example</h3>
+                    <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{ "status": "success", "message": "Data retrieved", "data": [ { "uuid": "8b65e430-04ad-43f7-a16a-77f1afd1daca", "created_at": "2020-01-01 00:00:00", "updated_at": "2020-01-01 00:00:00", "you_own_data": "you_own_value", "you_own_data2": "you_own_value2", "you_own_data3":
+                    "you_own_value3" } ] }'>
+
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="route-item">
+                <span class="route-method">[POST]</span>
+                <span class="route-path">https://json.web.id/app/{namespace?}</span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="mt-2 fs-5">Params</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>namespace</td>
+                                <td>string</td>
+                                <td>your own namespace if you want to make some apps or modules</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3 class="mt-2 fs-5">Data (JSON)</h3>
+                    <pre class="bg-dark text-light">
+<code>
+{
+    "you_own_data": "you_own_value",
+    "you_own_data2": "you_own_value2",
+    "you_own_data3": "you_own_value3"
+}</code>
+                    </pre>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="mt-2 fs-5">Response Example</h3>
+                    <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{ "status": "success", "message": "Data has been added", "data": { "uuid": "8b65e430-04ad-43f7-a16a-77f1afd1daca", "created_at": "2020-01-01 00:00:00", "updated_at": "2020-01-01 00:00:00", "you_own_data": "you_own_value", "you_own_data2": "you_own_value2", "you_own_data3":
+                    "you_own_value3" } }'>
+
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="route-item">
+                <span class="route-method">[PUT]</span>
+                <span class="route-path">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="mt-2 fs-5">Params</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>namespace</td>
+                                <td>string</td>
+                                <td>your own namespace if you want to make some apps or modules</td>
+                            </tr>
+                            <tr>
+                                <td>uuid <span class="text-danger">*</span></td>
+                                <td>string</td>
+                                <td>fill in the uuid that will be updated</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3 class="mt-2 fs-5">Data (JSON)</h3>
+                    <pre class="bg-dark text-light">
+<code>
+{
+    "you_own_data": "you_own_value_updated",
+    "you_own_data2": "you_own_value_updated2",
+    "you_own_data3": "you_own_value_updated3"
+}</code>
+                    </pre>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="mt-2 fs-5">Response Example</h3>
+                    <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{
+                        "status": "success",
+                        "message": "Data has been updated",
+                        "data": {
+                            "you_own_data": "you_own_value_updated",
+                            "you_own_data2": "you_own_value_updated2",
+                            "you_own_data3": "you_own_value_updated3",
+                            "uuid": "c6c05f21-4d26-46a2-9484-d840daba3709",
+                            "updated_at": "2022-01-09 21:55:12"
+                        }
+                    }'>
+
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <!-- DELETE -->
+        <li>
+            <div class="route-item">
+                <span class="route-method text-danger">[DELETE]</span>
+                <span class="route-path">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="mt-2 fs-5">Params</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>namespace</td>
+                                <td>string</td>
+                                <td>your own namespace if you want to make some apps or modules</td>
+                            </tr>
+                            <tr>
+                                <td>uuid <span class="text-danger">*</span></td>
+                                <td>string</td>
+                                <td>fill with uuid to be deleted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="mt-2 fs-5">Response Example</h3>
+                    <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{
+    "status": "success",
+    "message": "Data has been deleted"
+}'>
+
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
 </div>
 
 <div class="container mt-3">

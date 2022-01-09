@@ -50,6 +50,17 @@ var statusCode = {
 
 var body = ace.edit("body");
 var responseContainer = ace.edit("response");
+document.querySelectorAll('.response-example').forEach(el => {
+    let data = $(el).attr('data-json');
+
+    $(el).html(JSON.stringify(JSON.parse(data), null, 4));
+
+    let editor = ace.edit(el);
+    editor.getSession().setUseWorker(false);
+    editor.getSession().setMode("ace/mode/json");
+    editor.setTheme("ace/theme/solarized_dark");
+    editor.setReadOnly(true);
+})
 
 $(document).ready(function() {
 
@@ -58,8 +69,6 @@ $(document).ready(function() {
     body.getSession().setUseWorker(false);
     body.getSession().setMode("ace/mode/json");
     body.setTheme("ace/theme/solarized_dark");
-
-
 
     responseContainer.getSession().setUseWorker(false);
     responseContainer.getSession().setMode("ace/mode/json");
