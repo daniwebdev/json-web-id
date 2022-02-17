@@ -8,7 +8,6 @@ foreach ($read_dir as $file) {
     }
 }
 
-
 require_once __DIR__.'/vendor/autoload.php';
 define('BASE_PATH', __DIR__ . '/');
 
