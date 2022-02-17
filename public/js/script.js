@@ -50,6 +50,7 @@ var statusCode = {
 
 var body = ace.edit("body");
 var responseContainer = ace.edit("response");
+
 document.querySelectorAll('.response-example').forEach(el => {
     let data = $(el).attr('data-json');
 
@@ -60,7 +61,41 @@ document.querySelectorAll('.response-example').forEach(el => {
     editor.getSession().setMode("ace/mode/json");
     editor.setTheme("ace/theme/solarized_dark");
     editor.setReadOnly(true);
-})
+});
+
+
+const json_sample = {
+    product: {
+        name: "Product 1",
+        price: 100,
+        description: "Product 1 description",
+        image: "https://via.placeholder.com/150",
+        category: "category 1",
+        subcategory: "subcategory 1",
+        tags: ["tag 1", "tag 2", "tag 3"]
+    },
+    user: {
+        name: "User 1",
+        email: "user@mail.com",
+        password: "123456",
+        phone: "123456789",
+        address: "Address 1",
+        city: "City 1",
+        state: "State 1",
+        country: "Country 1",
+        zip: "123456",
+        role: "admin",
+        status: "active"
+    },
+    movie: {
+        title: "Movie 1",
+        description: "Movie 1 description",
+        image: "https://via.placeholder.com/150",
+        category: "category 1",
+        subcategory: "subcategory 1",
+        tags: ["tag 1", "tag 2", "tag 3"]
+    },
+}
 
 $(document).ready(function() {
 
@@ -187,5 +222,14 @@ $(document).ready(function() {
         }
     });
 
+    $('.json-sample').on('click', function() {
+        let key = $(this).attr('data-key');
+        body.setValue(JSON.stringify(json_sample[key], null, 4), 1);
+
+    });
+
+    $('.reset-body').on('click', function() {
+        body.setValue('{}', 1);
+    });
 
 });
