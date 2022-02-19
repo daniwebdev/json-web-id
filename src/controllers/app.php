@@ -44,7 +44,7 @@ function POST() {
     $body = json_encode(data_only());
     $now = date('Y-m-d H:i:s');
 
-    query("INSERT INTO _data (uuid, body, user_key, created_at, updated_at) VALUES ('$uuid', '$body', '$key', '$now', '$now')", $key);
+    execute("INSERT INTO _data (uuid, body, user_key, created_at, updated_at) VALUES ('$uuid', '$body', '$key', '$now', '$now')", $key);
 
     header('Content-Type: application/json');
     
