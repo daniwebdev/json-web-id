@@ -1,8 +1,9 @@
 {
-    "name": "goapi-id/goapi-json",
-    "description": "Dummy json app",
+    "name": "daniwebdev/json-web-id",
+    "description": "Multi Purpose JSON API For Your Application",
     "require": {
         "ext-pdo": "*",
+        "ext-sqlite3": "*",
         "fakerphp/faker": "^1.17"
     },
     "license": "MIT",
