@@ -1,0 +1,317 @@
+<!doctype html>
+<html class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="dark:bg-black" style="min-height: 100vh;">
+        <div class="container mx-auto">
+            <div class="cover text-center py-20">
+                <h1 class="text-gray-200 font-bold text-5xl">JSON.WEB.ID</h1>
+                <h2 class="text-gray-200 text-xl">
+                    JSON Example For Multi Perpose Application
+                </h2>
+            </div>
+
+            <!-- Playground -->
+            <div class="dark:bg-gray-900 p-5 mx-auto rounded-lg" style="max-width: 700px; min-height: 200px;">
+                <h5 class="mb-3 text-gray-400 text-xl">
+                    Option
+                </h5>
+                <div class="grid gap-4 grid-cols-2">
+                    <div class="text-gray-400 text-sm">
+                        <label for="">X-API-KEY (In HEADER)</label>
+                        <input type="text" class="w-full bg-gray-800 block text-lg rounded py-1 px-2 outline-0">
+                    </div>
+                    <div class="text-gray-400 text-sm">
+                        <label for="">Namespace (In PATH)</label>
+                        <input type="text" class="w-full bg-gray-800 block text-lg rounded py-1 px-2 outline-0">
+                    </div>
+                </div>
+
+                <div class="grid gap-4 grid-cols-3 mt-3">
+                    <div class="text-gray-400 text-sm col-span-1">
+                        <label for="">Method</label>
+                        <select name="" id="" class="w-full bg-gray-800 block text-lg rounded py-1 px-2 outline-0">
+                            <option value="GET">GET     (get data)</option>
+                            <option value="POST">POST   (add data)</option>
+                            <option value="PUT">PUT     (update data)</option>
+                            <option value="DELETE">DELETE (destroy data)</option>
+                        </select>
+                    </div>
+                    <div class="text-gray-400 text-sm col-span-2">
+                        <label for="">Query</label>
+                        <input type="text" class="w-full bg-gray-800 block text-lg rounded py-1 px-2 outline-0">
+                    </div>
+
+                    <div class="text-gray-400 text-sm col-span-3">
+                        <label for="">Data (Body)</label>
+                        <textarea name="" id="" rows="5" class="w-full bg-gray-800 block text-lg rounded py-1 px-2 outline-0"></textarea>
+                    </div>
+
+
+                    <div class="text-gray-400 text-sm col-span-3">
+                        <label for="">Execution</label>
+                        <div class="flex">
+                            <input value="https://" type="text" placeholder="10.95" class=" w-4/5 bg-gray-800 block text-lg rounded-l py-1 px-2 outline-0" />
+                            <button class="hover:bg-gray-900 hover:border-t hover:border-b hover:border-r border-gray-700 w-1/5 flex items-center justify-center bg-gray-700 rounded-r">
+                                Execute..!
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="text-gray-400 text-sm col-span-3">
+                        <label for="">Output / Response</label>
+                        <textarea name="" id="" rows="5" class="w-full bg-gray-800 block text-lg rounded py-1 px-2 outline-0"></textarea>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Documentation -->
+
+            <div class="mx-auto mt-20 text-gray-500" style="max-width: 700px; min-height: 200px;">
+                <h2 class="text-xl mb-5">How to use</h2>
+                <h2 class="fs-5">
+                    Header: x-api-key (optional)
+                </h2>
+                <div class="mb-5">
+                    <span class="text-gray-700 text-sm">
+                        <i class="fas fa-info-circle"></i>
+                        if you fill in the key, then your data will not be mixed with other users
+                    </span>
+                </div>
+
+                <ul class="mb-5">
+                    <li>
+                        <div class="bg-gray-700 pr-2 h-8 flex items-center">
+                            <span class="bg-blue-900 text-gray-400 px-2 py-1 h-8 block">[GET]</span>
+                            <span class="route-path block pl-1 text-gray-400">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+                        </div>
+                        <div class="grid grid-cols-2">
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Params</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>namespace</td>
+                                            <td>string</td>
+                                            <td>your own namespace if you want to make some apps or modules</td>
+                                        </tr>
+                                        <tr>
+                                            <td>uuid</td>
+                                            <td>string</td>
+                                            <td>if you want get with spesific uuid</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Response Example</h3>
+                                <pre class="text-gray-500">
+{ 
+"status": "success", 
+"message": "Data retrieved", 
+"data": [ 
+    { 
+        "uuid": "8b65e430-04ad-43f7-a16a-77f1afd1daca", 
+        "created_at": "2020-01-01 00:00:00", 
+        "updated_at": "2020-01-01 00:00:00", 
+        "you_own_data": "you_own_value", 
+        "you_own_data2": "you_own_value2", 
+        "you_own_data3": "you_own_value3"
+    }
+]
+}
+                                </pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="route-item">
+                            <span class="route-method">[POST]</span>
+                            <span class="route-path">https://json.web.id/app/{namespace?}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Params</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>namespace</td>
+                                            <td>string</td>
+                                            <td>your own namespace if you want to make some apps or modules</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h3 class="mt-2 fs-5">Data (JSON)</h3>
+                                <pre class="bg-dark text-light"><code>
+                {
+                    "you_own_data": "you_own_value",
+                    "you_own_data2": "you_own_value2",
+                    "you_own_data3": "you_own_value3"
+                }</code>
+                                    </pre>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Response Example</h3>
+                                <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{ "status": "success", "message": "Data has been added", "data": { "uuid": "8b65e430-04ad-43f7-a16a-77f1afd1daca", "created_at": "2020-01-01 00:00:00", "updated_at": "2020-01-01 00:00:00", "you_own_data": "you_own_value", "you_own_data2": "you_own_value2", "you_own_data3":
+                                    "you_own_value3" } }'>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="route-item">
+                            <span class="route-method">[PUT]</span>
+                            <span class="route-path">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Params</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>namespace</td>
+                                            <td>string</td>
+                                            <td>your own namespace if you want to make some apps or modules</td>
+                                        </tr>
+                                        <tr>
+                                            <td>uuid <span class="text-danger">*</span></td>
+                                            <td>string</td>
+                                            <td>fill in the uuid that will be updated</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h3 class="mt-2 fs-5">Data (JSON)</h3>
+                                <pre class="bg-dark text-light"><code>
+                {
+                    "you_own_data": "you_own_value_updated",
+                    "you_own_data2": "you_own_value_updated2",
+                    "you_own_data3": "you_own_value_updated3"
+                }</code>
+                                    </pre>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Response Example</h3>
+                                <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{
+                                        "status": "success",
+                                        "message": "Data has been updated",
+                                        "data": {
+                                            "you_own_data": "you_own_value_updated",
+                                            "you_own_data2": "you_own_value_updated2",
+                                            "you_own_data3": "you_own_value_updated3",
+                                            "uuid": "c6c05f21-4d26-46a2-9484-d840daba3709",
+                                            "updated_at": "2022-01-09 21:55:12"
+                                        }
+                                    }'>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="route-item">
+                            <span class="route-method text-danger">[DELETE]</span>
+                            <span class="route-path">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Params</h3>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>namespace</td>
+                                            <td>string</td>
+                                            <td>your own namespace if you want to make some apps or modules</td>
+                                        </tr>
+                                        <tr>
+                                            <td>uuid <span class="text-danger">*</span></td>
+                                            <td>string</td>
+                                            <td>fill with uuid to be deleted</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Response Example</h3>
+                                <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{
+                    "status": "success",
+                    "message": "Data has been deleted"
+                }'>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.querySelectorAll('textarea').forEach(doc => {
+        doc.addEventListener('keydown', function(e) {
+            if (e.key == 'Tab') {
+                e.preventDefault();
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+
+                // set textarea value to: text before caret + tab + text after caret
+                this.value = this.value.substring(0, start) +
+                    "\t" + this.value.substring(end);
+
+                // put caret at right position again
+                this.selectionStart =
+                    this.selectionEnd = start + 1;
+            }
+        });
+    })
+</script>
+
+</html>

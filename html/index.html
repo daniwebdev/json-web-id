@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html class="dark">
 
 <head>
     <title>JSON.WEB.ID - Just for Experiment</title>
@@ -20,6 +20,10 @@
     <link rel="icon" href="https://dani.work/blog/wp-content/uploads/2020/09/cropped-cropped-Webp.net-resizeimage-192x192.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="https://dani.work/blog/wp-content/uploads/2020/09/cropped-cropped-Webp.net-resizeimage-180x180.png" />
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
     <!-- Open Graph Tags -->
     <meta property="og:title" content="JSON.WEB.ID - Just for experiment">
     <meta property="og:description" content="You can make application with customized object format, like no sql but using REST API, happy coding..!">
@@ -28,383 +32,368 @@
     <meta property="og:site_name" content="json.web.id">
     <meta property="og:type" content="website">
 
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    <!-- Custom CSS -->
 
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                    font
+                },
+                fontFamily: {
+                    'display': ['Oswald'],
+                    'body': ['"Source Sans Pro"'],
+                    'display': ['"Source Sans Pro"'],
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Source Sans Pro';
+        }
+        .cover h1, .cover h2 {
+            /* font-size: 72px; */
+            background: -webkit-linear-gradient(315deg,#4264d3 25%,#64ff98);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ace_editor {
+            border-radius: 10px;
+            padding: 10px
+        }
+
+    </style>
 </head>
 
-<div class="p-5 bg-light">
-    <div class="container">
-        <h1 class="display-3" style="border-radius: 10px;">{ JSON.WEB.ID }</h1>
-        <p class="lead">
-            JSON API for everyone, for any purpose experiment with customize object structure.
-        </p>
+<body class="dark:bg-gray-900">
+    <div>
+        <div class="container mx-auto" style="max-width: 700px; min-height: 200px;">
+            <div class="cover text-center py-20">
+                <h1 class="text-gray-200 font-bold text-5xl">JSON.WEB.ID</h1>
+                <h2 class="text-gray-200 text-xl">
+                    JSON Example For Multi Perpose Application
+                </h2>
+            </div>
 
-        <h5>Follow Creator</h5>
-        <div class="socmed-link">
-            <a target="_blank" href="//github.com/daniwebdev">
-                <i class="fab fa-github"></i>
-            </a>
-            <a target="_blank" href="//instagram.com/daniwebdev">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a target="_blank" href="//twitter.com/daniwebdev">
-                <i class="fab fa-twitter"></i>
-            </a>
-        </div>
-    </div>
-</div>
-
-
-<div class="container mt-3">
-    <div class="text-danger mb-3">
-        <span class="badge bg-danger" id="warning">
-            <i class="fas fa-info-circle"></i> Database will be reset every 00:00 UTC+7
-        </span>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            Playground
-        </div>
-
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="key">Header: x-api-key (optional)</label>
-                        <input type="text" class="form-control" id="key" placeholder="your own key">
-                        <small>
-                            <span class="text-muted">
-                                <i class="fas fa-info-circle"></i> 
-                                if you fill in the key, then your data will not be mixed with other users
-                            </span>
-                        </small>
+            <!-- Playground -->
+            <div class="dark:bg-gray-800 p-5 mx-auto rounded-lg" >
+                <h5 class="mb-3 text-gray-400 text-xl">
+                    Option
+                </h5>
+                <div class="grid gap-4 grid-cols-2">
+                    <div id="key" class="text-gray-400 text-sm">
+                        <label for="">X-API-KEY (In HEADER)</label>
+                        <input type="text" class="w-full bg-gray-700 block text-lg rounded py-1 px-2 outline-0">
                     </div>
-
-                    <div class="mb-3">
-                        <label for="key">Path: namespace (optional)</label>
-                        <input type="text" class="form-control" id="namespace" placeholder="your_name_space">
-                        <small>
-                            <span class="text-muted">
-                                <i class="fa fa-info-circle"></i> 
-                                You can create different apps with the same key.
-                            </span>
-                        </small>
+                    <div class="text-gray-400 text-sm">
+                        <label for="">Namespace (In PATH)</label>
+                        <input id="namespace" type="text" class="w-full bg-gray-700 block text-lg rounded py-1 px-2 outline-0">
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="method">Method</label>
-                        <select name="method" id="method" class="form-control">
-                            <option value="GET">GET (get data)</option>
-                            <option value="POST">POST (add data)</option>
-                            <option value="PUT">PUT (update data)</option>
+                <div class="grid gap-4 grid-cols-3 mt-3">
+                    <div class="text-gray-400 text-sm col-span-1">
+                        <label for="">Method</label>
+                        <select name="method" id="method" class="w-full bg-gray-700 block text-lg rounded py-1 px-2 outline-0">
+                            <option value="GET">GET     (get data)</option>
+                            <option value="POST">POST   (add data)</option>
+                            <option value="PUT">PUT     (update data)</option>
                             <option value="DELETE">DELETE (destroy data)</option>
                         </select>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="key">Query</label>
-                        <input style="display: show;" id="query" type="text" class="form-control" placeholder="uuid=8b65e430-04ad-43f7-a16a-77f1afd1daca&params2=value2">
+                    <div class="text-gray-400 text-sm col-span-2">
+                        <label for="">Query</label>
+                        <input id="query" type="text" class="w-full bg-gray-700 block text-lg rounded py-1 px-2 outline-0">
                     </div>
 
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between">
-                            <label for="key">Data (JSON)</label>
-                        </div>
-                        <div id="body" class="rounded pt-2 mt-2" style="height: 200px;">{}</div>
-                        <div class="mt-3 d-flex justify-content-between">
+                    <div class="text-gray-400 text-sm col-span-3">
+                        <label for="">Data (Body)</label>
+                        <!-- <textarea  id="body" name="" rows="5" class="w-full bg-gray-700 block text-lg rounded py-1 px-2 outline-0"></textarea> -->
+                        <div id="body" class="" style="height: 200px;">{}</div>
+
+                        <div class="mt-3 flex justify-between">
                             <div>
-                                <button data-key="product" class="json-sample btn btn-outline-primary btn-sm" style="border-radius: 30px;">Product</button>
-                                <button data-key="user" class="json-sample btn btn-outline-info btn-sm" style="border-radius: 30px;">User</button>
-                                <button data-key="movie" class="json-sample btn btn-outline-danger btn-sm" style="border-radius: 30px;">Movie</button>
+                                <button data-key="product" class="json-sample bg-blue-600 py-2 px-3 rounded-sm text-white" style="border-radius: 30px;">Product</button>
+                                <button data-key="user" class="json-sample bg-orange-600 py-2 px-3 rounded-sm text-white" style="border-radius: 30px;">User</button>
+                                <button data-key="movie" class="json-sample bg-green-600 py-2 px-3 rounded-sm text-white" style="border-radius: 30px;">Movie</button>
                             </div>
                             <div>
-                                <button class="reset-body btn btn-outline-secondary btn-sm" style="border-radius: 30px;">Reset</button>
+                                <button class="reset-body bg-red-600 py-2 px-3 rounded-sm text-white" style="border-radius: 30px;">Reset</button>
                             </div>
                         </div>
                         <small class="d-block">your data will be stored in database even any object format you want</small>
                     </div>
-                </div>
 
-                <div class="col-md-6 d-flex-inline">
-                    <div>
-                        <label for="key">Execute</label>
-                        <div class="input-group">
-                            <input readonly type="text" class="form-control" value="https://json.web.id/app" id="address">
-                            <button class="btn btn-primary" type="button" id="exec">
-                                <i class="fas fa-play"></i>
+
+                    <div class="text-gray-400 text-sm col-span-3">
+                        <label for="">Execution</label>
+                        <div class="flex">
+                            <input readonly id="address" value="https://" type="text" placeholder="10.95" class=" w-4/5 bg-gray-700 block text-lg rounded-l py-1 px-2 outline-0" />
+                            <button id="exec" class="hover:bg-gray-700 hover:border-t hover:border-b hover:border-r border-gray-700 w-1/5 flex items-center justify-center bg-gray-600 rounded-r">
+                                Execute..!
                             </button>
                         </div>
                     </div>
 
-                    <div class="card mt-2 rounded">
-                        <div class="rounded-top" id="response" style="height: 300px">{}</div>
-                        <div class="card-footer" style="text-transform: lowercase;">
-                            <label for="">status:</label>
-                            <span id="status-code"></span>
-                            <span id="status-message"></span>
+                    <div class="text-gray-400 text-sm col-span-3">
+                        <label for="">Output / Response</label>
+                        <!-- <textarea name="" id="" rows="5" class="w-full bg-gray-700 block text-lg rounded py-1 px-2 outline-0"></textarea> -->
+                        <div class="rounded-top" id="response" style="height: 200px">{}</div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Documentation -->
+
+            <div class="documentation my-10 m-auto text-gray-400"  >
+                <h2 class="text-2xl">How to use</h2>
+
+                <div class="mt-5">
+                    <h3 class="fs-5">
+                        Header: x-api-key (optional)
+                    </h3>
+                    <span class="text-gray-500 text-sm">
+                        <i class="fas fa-info-circle"></i> 
+                        if you fill in the key, then your data will not be mixed with other users
+                    </span>
+                </div>
+
+                <ul class="list-routes mt-5">
+                    <li class="mb-5 border-b border-gray-800 pb-10">
+                        <div class="route-item bg-gray-700 h-10 flex items-center">
+                            <span class="route-method text-gray-200 bg-green-600 h-10 w-20 flex items-center justify-center">[GET]</span>
+                            <span class="route-path pl-3">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
                         </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container mt-3">
-    <h3>Comments</h3>
-    <div class="fb-comments" data-href="https://json.web.id" data-width="100%" data-numposts="10"></div>
-</div>
-
-<div class="container mt-3">
-    <h2>How to use</h2>
-    <h2 class="fs-5">
-        Header: x-api-key (optional)
-    </h2>
-    <p>
-        <span class="text-muted">
-            <i class="fas fa-info-circle"></i> 
-            if you fill in the key, then your data will not be mixed with other users
-        </span>
-    </p>
-    <hr>
-    <ul class="list-routes">
-        <li>
-            <div class="route-item">
-                <span class="route-method">[GET]</span>
-                <span class="route-path">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="mt-2 fs-5">Params</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>namespace</td>
-                                <td>string</td>
-                                <td>your own namespace if you want to make some apps or modules</td>
-                            </tr>
-                            <tr>
-                                <td>uuid</td>
-                                <td>string</td>
-                                <td>if you want get with spesific uuid</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="mt-2 fs-5">Response Example</h3>
-                    <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{ "status": "success", "message": "Data retrieved", "data": [ { "uuid": "8b65e430-04ad-43f7-a16a-77f1afd1daca", "created_at": "2020-01-01 00:00:00", "updated_at": "2020-01-01 00:00:00", "you_own_data": "you_own_value", "you_own_data2": "you_own_value2", "you_own_data3":
-                    "you_own_value3" } ] }'>
-
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="route-item">
-                <span class="route-method">[POST]</span>
-                <span class="route-path">https://json.web.id/app/{namespace?}</span>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="mt-2 fs-5">Params</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>namespace</td>
-                                <td>string</td>
-                                <td>your own namespace if you want to make some apps or modules</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h3 class="mt-2 fs-5">Data (JSON)</h3>
-                    <pre class="bg-dark text-light">
-<code>
+                        <div class="gap-3 grid grid-cols-1">
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Params</h3>
+                                <table class="table-auto w-full">
+                                    <thead>
+                                        <tr>
+                                            <th class="border py-1 px-2">Name</th>
+                                            <th class="border py-1 px-2">Type</th>
+                                            <th class="border py-1 px-2">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border py-1 px-2">namespace</td>
+                                            <td class="border py-1 px-2">string</td>
+                                            <td class="border py-1 px-2">your own namespace if you want to make some apps or modules</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border py-1 px-2">uuid</td>
+                                            <td class="border py-1 px-2">string</td>
+                                            <td class="border py-1 px-2">if you want get with spesific uuid</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Response Example</h3>
+                                <div class="bg-dark text-light rounded response-example" style="min-height: 150px; padding: 10px" data-json='{ "status": "success", "message": "Data retrieved", "data": [ { "uuid": "8b65e430-04ad-43f7-a16a-77f1afd1daca", "created_at": "2020-01-01 00:00:00", "updated_at": "2020-01-01 00:00:00", "you_own_data": "you_own_value", "you_own_data2": "you_own_value2", "you_own_data3":
+                                "you_own_value3" } ] }'>
+            
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            
+                    <li class="mb-5 border-b border-gray-800 pb-10">
+                        <div class="route-item bg-gray-700 h-10 flex items-center">
+                            <span class="route-method text-gray-200 bg-blue-600 h-10 w-20 flex items-center justify-center">[POST]</span>
+                            <span class="route-path pl-3">https://json.web.id/app/{namespace?}</span>
+                        </div>
+                        <div class="gap-3 grid grid-cols-1">
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Params</h3>
+                                <table class="table-auto w-full">
+                                    <thead>
+                                        <tr>
+                                            <th class="border py-1 px-2">Name</th>
+                                            <th class="border py-1 px-2">Type</th>
+                                            <th class="border py-1 px-2">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border py-1 px-2">namespace</td>
+                                            <td class="border py-1 px-2">string</td>
+                                            <td class="border py-1 px-2">your own namespace if you want to make some apps or modules</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h3 class="mt-2 fs-5">Data (JSON)</h3>
+                                <pre class="bg-gray-700">
+            <code>
 {
     "you_own_data": "you_own_value",
     "you_own_data2": "you_own_value2",
     "you_own_data3": "you_own_value3"
 }</code>
-                    </pre>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="mt-2 fs-5">Response Example</h3>
-                    <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{ "status": "success", "message": "Data has been added", "data": { "uuid": "8b65e430-04ad-43f7-a16a-77f1afd1daca", "created_at": "2020-01-01 00:00:00", "updated_at": "2020-01-01 00:00:00", "you_own_data": "you_own_value", "you_own_data2": "you_own_value2", "you_own_data3":
-                    "you_own_value3" } }'>
-
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="route-item">
-                <span class="route-method">[PUT]</span>
-                <span class="route-path">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="mt-2 fs-5">Params</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>namespace</td>
-                                <td>string</td>
-                                <td>your own namespace if you want to make some apps or modules</td>
-                            </tr>
-                            <tr>
-                                <td>uuid <span class="text-danger">*</span></td>
-                                <td>string</td>
-                                <td>fill in the uuid that will be updated</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h3 class="mt-2 fs-5">Data (JSON)</h3>
-                    <pre class="bg-dark text-light">
-<code>
+                                </pre>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Response Example</h3>
+                                <div class="bg-dark text-light rounded response-example" style="min-height: 150px; padding: 10px" data-json='{ "status": "success", "message": "Data has been added", "data": { "uuid": "8b65e430-04ad-43f7-a16a-77f1afd1daca", "created_at": "2020-01-01 00:00:00", "updated_at": "2020-01-01 00:00:00", "you_own_data": "you_own_value", "you_own_data2": "you_own_value2", "you_own_data3":
+                                "you_own_value3" } }'>
+            
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            
+                    <li class="mb-5 border-b border-gray-800 pb-10">
+                        <div class="route-item bg-gray-700 h-10 flex items-center">
+                            <span class="route-method text-gray-200 bg-orange-600 h-10 w-20 flex items-center justify-center">[PUT]</span>
+                            <span class="route-path pl-3">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+                        </div>
+                        <div class="gap-3 grid grid-cols-1">
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Params</h3>
+                                <table class="table-auto w-full">
+                                    <thead>
+                                        <tr>
+                                            <th class="border py-1 px-2">Name</th>
+                                            <th class="border py-1 px-2">Type</th>
+                                            <th class="border py-1 px-2">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border py-1 px-2">namespace</td>
+                                            <td class="border py-1 px-2">string</td>
+                                            <td class="border py-1 px-2">your own namespace if you want to make some apps or modules</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border py-1 px-2">uuid <span class="text-danger">*</span></td>
+                                            <td class="border py-1 px-2">string</td>
+                                            <td class="border py-1 px-2">fill in the uuid that will be updated</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h3 class="mt-2 fs-5">Data (JSON)</h3>
+                                <pre class="bg-gray-700">
+            <code>
 {
     "you_own_data": "you_own_value_updated",
     "you_own_data2": "you_own_value_updated2",
     "you_own_data3": "you_own_value_updated3"
 }</code>
-                    </pre>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="mt-2 fs-5">Response Example</h3>
-                    <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{
-                        "status": "success",
-                        "message": "Data has been updated",
-                        "data": {
-                            "you_own_data": "you_own_value_updated",
-                            "you_own_data2": "you_own_value_updated2",
-                            "you_own_data3": "you_own_value_updated3",
-                            "uuid": "c6c05f21-4d26-46a2-9484-d840daba3709",
-                            "updated_at": "2022-01-09 21:55:12"
-                        }
-                    }'>
+                                </pre>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Response Example</h3>
+                                <div class="bg-dark text-light rounded response-example" style="min-height: 150px; padding: 10px" data-json='{
+                                    "status": "success",
+                                    "message": "Data has been updated",
+                                    "data": {
+                                        "you_own_data": "you_own_value_updated",
+                                        "you_own_data2": "you_own_value_updated2",
+                                        "you_own_data3": "you_own_value_updated3",
+                                        "uuid": "c6c05f21-4d26-46a2-9484-d840daba3709",
+                                        "updated_at": "2022-01-09 21:55:12"
+                                    }
+                                }'>
+            
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            
+                    <!-- DELETE -->
+                    <li class="mb-5 border-b border-gray-800 pb-10">
+                        <div class="route-item bg-gray-700 h-10 flex items-center">
+                            <span class="route-method text-gray-200 bg-red-600 h-10 w-20 flex items-center justify-center">[DELETE]</span>
+                            <span class="route-path pl-3">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+                        </div>
+                        <div class="gap-3 grid grid-cols-1">
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Params</h3>
+                                <table class="table-auto w-full">
+                                    <thead>
+                                        <tr>
+                                            <th class="border py-1 px-2">Name</th>
+                                            <th class="border py-1 px-2">Type</th>
+                                            <th class="border py-1 px-2">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="border py-1 px-2">namespace</td>
+                                            <td class="border py-1 px-2">string</td>
+                                            <td class="border py-1 px-2">your own namespace if you want to make some apps or modules</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border py-1 px-2">uuid <span class="text-danger">*</span></td>
+                                            <td class="border py-1 px-2">string</td>
+                                            <td class="border py-1 px-2">fill with uuid to be deleted</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mt-2 fs-5">Response Example</h3>
+                                <div class="bg-dark text-light rounded response-example" style="min-height: 150px; padding: 10px" data-json='{
+                "status": "success",
+                "message": "Data has been deleted"
+            }'>
+            
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
+            <!-- Footer -->
+
+            <footer class="flex justify-between items-top text-gray-500 pb-10">
+                <div>
+                    <h3 class="fs-5">
+                        Please donate if you like this project
+                    </h3>
+                    
+                    <div class="flex gap-3">
+
+                        <a target="_blank" href="//paypal.me/daniwebdev" class="bg-blue-800 text-white py-2 px-3 rounded-md">
+                            <img src="https://www.paypalobjects.com/webstatic/icon/favicon.ico" width="24px" class="inline"> Paypay
+                        </a>
+                
+                        <a target="_blank" href="//saweria.co/coderotodidak" class="bg-blue-800 text-white py-2 px-3 rounded-md">
+                            <img width="24px" src="https://saweria.co/favicon.ico" class="inline"> Saweria 🇮🇩
+                        </a>
                     </div>
                 </div>
-            </div>
-        </li>
-
-        <!-- DELETE -->
-        <li>
-            <div class="route-item">
-                <span class="route-method text-danger">[DELETE]</span>
-                <span class="route-path">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="mt-2 fs-5">Params</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Type</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>namespace</td>
-                                <td>string</td>
-                                <td>your own namespace if you want to make some apps or modules</td>
-                            </tr>
-                            <tr>
-                                <td>uuid <span class="text-danger">*</span></td>
-                                <td>string</td>
-                                <td>fill with uuid to be deleted</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="text-right">
+                    <h3 class="fs-5">
+                        Supported by
+                    </h3>
+                    <a target="_blank" href="//goapi.id" class="text-blue-500 hover:text-blue-600">
+                        https://goapi.id
+                    </a>
                 </div>
-                <div class="col-md-6">
-                    <h3 class="mt-2 fs-5">Response Example</h3>
-                    <div class="bg-dark text-light rounded response-example" style="min-height: 200px;" data-json='{
-    "status": "success",
-    "message": "Data has been deleted"
-}'>
-
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-
-
-
-<div class="container mt-3 d-flex justify-content-between">
-    <div>
-        <h3 class="fs-5">
-            Please donate if you like this project
-        </h3>
-
-        <a target="_blank" href="//paypal.me/daniwebdev" class="btn btn-primary">
-            <img src="https://www.paypalobjects.com/webstatic/icon/favicon.ico" width="24px" alt="" srcset=""> Paypay
-        </a>
-
-        <a target="_blank" href="//saweria.co/coderotodidak" class="btn btn-primary">
-            <img width="24px" src="https://saweria.co/favicon.ico"> Saweria 🇮🇩
-        </a>
-    </div>
-    <div class="text-end">
-        <h3 class="fs-5">
-            Supported by
-        </h3>
-        <a target="_blank" href="//goapi.id">
-            https://goapi.id
-        </a>
-    </div>
-</div>
-
-<footer style="background: #eee" class="mt-5">
-    <div class="container d-flex align-items-center" style="height: 50px;">
-        <div class="text-start">
-            &copy;2022 <a target="_blank" href="//me.dani.work">daniwebdev</a>
+            </footer>
         </div>
     </div>
-</footer>
+</body>
 
 <!-- Bootstrap JavaScript Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
 <script src="https://pagecdn.io/lib/ace/1.4.13/ace.min.js" crossorigin="anonymous" integrity="sha256-GjtAsBCI/KPlEYQf0I8yNimcThRoWMnk7Vpi+dUt+GY="></script>
 <script src="https://pagecdn.io/lib/ace/1.4.13/theme-solarized_dark.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script src="https://pagecdn.io/lib/ace/1.4.13/mode-json.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -414,6 +403,24 @@
 
 <script defer src="/js/script.js"></script>
 
-</body>
+<script>
+    document.querySelectorAll('textarea').forEach(doc => {
+        doc.addEventListener('keydown', function(e) {
+            if (e.key == 'Tab') {
+                e.preventDefault();
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+
+                // set textarea value to: text before caret + tab + text after caret
+                this.value = this.value.substring(0, start) +
+                    "\t" + this.value.substring(end);
+
+                // put caret at right position again
+                this.selectionStart =
+                    this.selectionEnd = start + 1;
+            }
+        });
+    })
+</script>
 
 </html>

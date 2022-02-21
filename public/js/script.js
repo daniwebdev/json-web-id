@@ -61,6 +61,8 @@ document.querySelectorAll('.response-example').forEach(el => {
     editor.getSession().setMode("ace/mode/json");
     editor.setTheme("ace/theme/solarized_dark");
     editor.setReadOnly(true);
+    editor.renderer.$fontMetrics.el.style.display = "block"
+    editor.renderer.setShowGutter(false);
 });
 
 
@@ -97,13 +99,14 @@ const json_sample = {
     },
 }
 
-$(document).ready(function() {
+$(function() {
 
     build_url();
 
     body.getSession().setUseWorker(false);
     body.getSession().setMode("ace/mode/json");
     body.setTheme("ace/theme/solarized_dark");
+
 
     responseContainer.getSession().setUseWorker(false);
     responseContainer.getSession().setMode("ace/mode/json");
@@ -205,7 +208,8 @@ $(document).ready(function() {
 
     $('#body').parent().hide();
 
-    $('#method').change(function() {
+    $('#method').on('change ',function() {
+
         if ($(this).val() == 'GET' || $(this).val() == 'DELETE') {
             $('#body').parent().hide();
             $('#query').parent().show().val('');
