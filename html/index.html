@@ -88,16 +88,18 @@
             <!-- Playground -->
             <div class="dark:bg-gray-800 p-5 mx-auto rounded-lg" >
                 <h5 class="mb-3 text-gray-400 text-xl">
-                    Option
+                    Let's play with JSON
                 </h5>
                 <div class="grid gap-4 grid-cols-2">
                     <div id="key" class="text-gray-400 text-sm">
                         <label for="">X-API-KEY (In HEADER)</label>
                         <input type="text" class="w-full bg-gray-700 block text-lg rounded py-1 px-2 outline-0">
+                        <small>optional if you want make data unique by key</small>
                     </div>
                     <div class="text-gray-400 text-sm">
                         <label for="">Namespace (In PATH)</label>
                         <input id="namespace" type="text" class="w-full bg-gray-700 block text-lg rounded py-1 px-2 outline-0">
+                        <small>Optional if you want make data unique by namespace</small>
                     </div>
                 </div>
 
@@ -165,13 +167,25 @@
                         Header: x-api-key (optional)
                     </h3>
                     <span class="text-gray-500 text-sm">
-                        <i class="fas fa-info-circle"></i> 
-                        if you fill in the key, then your data will not be mixed with other users
+                        if you put key then you get unique data based on key. Ex: you make some applications and each application has a different key.
+                    </span>
+                </div>
+
+                <div class="mt-5">
+                    <h3 class="fs-5">
+                        Namespace: /{namespace}
+                    </h3>
+                    <span class="text-gray-500 text-sm">
+                        Like a virtual module for your apps, you can make your data unique by namespace. Ex: you make application with more then one modules, and then you can make data unique by namespace for your modules.
                     </span>
                 </div>
 
                 <ul class="list-routes mt-5">
                     <li class="mb-5 border-b border-gray-800 pb-10">
+                        <h3 class="text-xl">Get Data</h3>
+                        <p class="mb-2">
+                            Get your data from database, with namespace or query for filtering results.
+                        </p>
                         <div class="route-item bg-gray-700 h-10 flex items-center">
                             <span class="route-method text-gray-200 bg-green-600 h-10 w-20 flex items-center justify-center">[GET]</span>
                             <span class="route-path pl-3">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
@@ -212,6 +226,11 @@
                     </li>
             
                     <li class="mb-5 border-b border-gray-800 pb-10">
+                        <h3 class="text-xl">Store Data</h3>
+                        <p class="mb-2">
+                            Store your data into database, with namespace (optional).
+                        </p>
+
                         <div class="route-item bg-gray-700 h-10 flex items-center">
                             <span class="route-method text-gray-200 bg-blue-600 h-10 w-20 flex items-center justify-center">[POST]</span>
                             <span class="route-path pl-3">https://json.web.id/app/{namespace?}</span>
@@ -256,9 +275,14 @@
                     </li>
             
                     <li class="mb-5 border-b border-gray-800 pb-10">
+                        <h3 class="text-xl">Update Data</h3>
+                        <p class="mb-2">
+                            Also you can simulate updating data by sending a PUT request to this endpoint. {uuid} is required for spesific data to be updated.
+                        </p>
+
                         <div class="route-item bg-gray-700 h-10 flex items-center">
                             <span class="route-method text-gray-200 bg-orange-600 h-10 w-20 flex items-center justify-center">[PUT]</span>
-                            <span class="route-path pl-3">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+                            <span class="route-path pl-3">https://json.web.id/app/{namespace?}?uuid={uuid}</span>
                         </div>
                         <div class="gap-3 grid grid-cols-1">
                             <div class="col-md-6">
@@ -315,9 +339,16 @@
             
                     <!-- DELETE -->
                     <li class="mb-5 border-b border-gray-800 pb-10">
+                        
+                        <h3 class="text-xl">Delete Data</h3>
+                        <p class="mb-2">
+                            with this endpoint you can delete data. {uuid} is required for spesific data to be deleted.
+                        </p>
+
+
                         <div class="route-item bg-gray-700 h-10 flex items-center">
                             <span class="route-method text-gray-200 bg-red-600 h-10 w-20 flex items-center justify-center">[DELETE]</span>
-                            <span class="route-path pl-3">https://json.web.id/app/{namespace?}?uuid={uuid?}</span>
+                            <span class="route-path pl-3">https://json.web.id/app/{namespace?}?uuid={uuid}</span>
                         </div>
                         <div class="gap-3 grid grid-cols-1">
                             <div class="col-md-6">
@@ -381,9 +412,7 @@
                     <h3 class="fs-5">
                         Supported by
                     </h3>
-                    <a target="_blank" href="//goapi.id" class="text-blue-500 hover:text-blue-600">
-                        https://goapi.id
-                    </a>
+                    <span>--Your Brand--</span>
                 </div>
             </footer>
         </div>
