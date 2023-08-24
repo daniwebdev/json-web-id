@@ -80,12 +80,18 @@
 
 <body class="dark:bg-gray-900">
     <div>
-        <div class="container mx-auto" style="max-width: 700px; min-height: 200px;">
+        <div class="container mx-auto max-w-[850px]" style="min-height: 200px;">
             <div class="cover text-center py-20">
                 <h1 class="text-gray-200 font-bold text-5xl">JSON.WEB.ID</h1>
                 <h2 class="text-gray-200 text-xl">
-                    Multi Purpose JSON API For Your Application
+                    Your Dummy Data Playground.
                 </h2>
+
+                <a href="#doc" class="mt-5 inline-block text-xl text-orange-500 hover:text-2xl">[How to use]</a>
+            </div>
+
+            <div class="text-gray-300 mb-4 border border-red-600 py-3 px-4 rounded-lg">
+                Attention, please: This content is intended solely for experimental purposes. Feel free to develop your own applications, utilizing your preferred data structure. Think of it as a 'NoSQL' approach with the convenience of REST APIs. Happy coding!
             </div>
 
             <!-- Playground -->
@@ -97,12 +103,12 @@
                     <div class="text-gray-400 text-sm">
                         <label for="">Header 'X-API-KEY' <i>(Optional)</i></label>
                         <input id="key" type="text" class="w-full bg-gray-700 block text-lg rounded py-1 px-2 outline-0">
-                        <span>If you want to create unique data based on x-api-key in <span class="bg-orange-600 px-2 text-white">header</span></span>
+                        <span>If you want to create unique data based on x-api-key in <span class="text-orange-600">header</span></span>
                     </div>
                     <div class="text-gray-400 text-sm">
                         <label for="">Namespace <i>(Optional)</i></label>
                         <input id="namespace" type="text" class="w-full bg-gray-700 block text-lg rounded py-1 px-1 outline-0">
-                        <span>If you want to create unique data based on namespace, which is in <span class="bg-orange-600 text-white px-1">path url</span></span>
+                        <span>If you want to create unique data based on namespace, which is in <span class="text-orange-600">path url</span></span>
                     </div>
                 </div>
 
@@ -110,25 +116,30 @@
 
                     <input type="hidden" id="method">
 
-                    <div class="col-span-3 flex justify-between" hidden>
-                        <div data-method="auth-register" class="method-item rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 p-4">
-                            Register
-                        </div>
-                        <div data-method="auth-login" class="method-item rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 p-4">
-                            Login
+                    <!-- Navigation -->
+                    <div class="col-span-3 grid grid-cols-3 gap-2 justify-between" hidden>
+                        <div data-method="auth-register" class="method-item cursor-pointer rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 px-4 py-2">
+                            [POST] Register
                         </div>
 
-                        <div data-method="get-data" class="method-item rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-orange-600 text-white p-4">
-                            Get Data
+                        <div data-method="auth-login" class="method-item cursor-pointer rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 px-4 py-2">
+                            [POST] Login
                         </div>
-                        <div data-method="create-data" class="method-item rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 p-4">
-                            Create Data
+
+                        <div data-method="get-data" class="method-item cursor-pointer rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-orange-600 text-white px-4 py-2">
+                            [GET] Get Data
                         </div>
-                        <div data-method="update-data" class="method-item rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 p-4">
-                            Update Data
+
+                        <div data-method="create-data" class="method-item cursor-pointer rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 px-4 py-2">
+                            [POST] Create Data
                         </div>
-                        <div data-method="delete-data" class="method-item rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 p-4">
-                            Delete Data
+
+                        <div data-method="update-data" class="method-item cursor-pointer rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 px-4 py-2">
+                            [PUT] Update Data
+                        </div>
+
+                        <div data-method="delete-data" class="method-item cursor-pointer rounded border border-gray-600 hover:bg-orange-600 hover:text-white bg-gray-200 px-4 py-2">
+                            [DELETE] Delete Data
                         </div>
                     </div>
 
@@ -188,15 +199,15 @@
 
 
             <!-- Documentation -->
-            <div class="documentation my-10 m-auto text-gray-400"  >
-                <h2 class="text-3xl font-bold">How to use</h2>
+            <div class="documentation m-auto text-gray-400" id="doc" >
+                <h2 class="text-3xl inline-block font-bold mt-10">How to use</h2>
 
                 <div class="mt-5">
                     <h3 class="fs-5">
                         Header: x-api-key (optional)
                     </h3>
                     <span class="text-gray-500">
-                        if you put key then you get unique data based on key. for an example you make some applications and each application has a different key.
+                        If you input a key, you'll receive distinctive data corresponding to that key. To illustrate, when you create various applications, each application can be assigned a distinct key, ensuring individualized datasets
                     </span>
                 </div>
 
@@ -205,8 +216,12 @@
                         Namespace: /{namespace}
                     </h3>
                     <span class="text-gray-500">
-                        Like a virtual module for your apps, you can make your data unique by namespace. Ex: you make application with more then one modules, and then you can make data unique by namespace for your modules.
+                        Similar to a virtual module for your applications, you can establish data uniqueness through namespaces. For instance, if you create an application with multiple modules, you have the ability to achieve data distinctiveness by implementing namespaces for each module.
                     </span>
+                </div>
+
+                <div class="text-gray-300 mb-4 border border-red-600 py-3 px-4 mt-4 rounded-lg">
+                    Unique data is essentially stored based on the hash of (x-api-key + namespace).
                 </div>
 
                 <ul class="list-routes mt-5 pt-5 border-t border-gray-800">
@@ -419,7 +434,6 @@
             </div>
 
             <!-- Footer -->
-
             <footer class="flex justify-between items-top text-gray-500 pb-10">
                 <div>
                     <h3 class="fs-5">
@@ -441,7 +455,7 @@
                     <h3 class="fs-5">
                         Creator
                     </h3>
-                    <a href="https://instagram.com/daniwebdev" target="_blank" class="text-white">@daniwebdev</a>
+                    <a href="https://github.com/daniwebdev" target="_blank" class="text-white">@daniwebdev</a>
                 </div>
             </footer>
         </div>
@@ -467,8 +481,6 @@
 
 <script defer src="/js/curl-generator.umd.js"></script>
 <script defer src="/js/script.js"></script>
-
-<script async defer data-website-id="477a0d67-c41d-4a4b-a787-8c0abbce3a14" src="https://stats.onbox.my.id/umami.js"></script>
 
 <script>
     document.querySelectorAll('textarea').forEach(doc => {

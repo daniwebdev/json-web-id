@@ -109,6 +109,7 @@ $(function() {
    
 
     build_url();
+    set_path('');
 
     body.getSession().setUseWorker(false);
     body.getSession().setMode("ace/mode/json");
@@ -310,8 +311,12 @@ $(function() {
             var method = this.getAttribute('data-method');
             var requestMethod = 'GET';
 
-            // alert(method)
+            if(this.classList.contains('bg-orange-600')) {
+                // if is active don't do anythings
+                return false;
+            }
 
+            // alert(method)
             this.classList.toggle('bg-orange-600')
             this.classList.toggle('text-white')
             
