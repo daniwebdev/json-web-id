@@ -175,6 +175,7 @@ $(function() {
 
     function set_path(path='') {
         let prefix  = location.href;
+        let namespace = $('#namespace').val();
         let url     = prefix + 'app' + path;
 
         $('#address').val(url)
@@ -337,7 +338,7 @@ $(function() {
                     $('#body').val('{}');
                     
                     requestMethod = 'GET';
-
+                    build_url();
                     break;
                 case 'update-data':
                     requestMethod = 'PUT';
@@ -346,6 +347,7 @@ $(function() {
                     $('#query').parent().show()
                     $('#query').val('');
                     $('#body').val('{}');
+                    build_url();
 
                     break;
                 case 'create-data':
@@ -355,6 +357,7 @@ $(function() {
                     $('#body').parent().show().val('');
                     $('#body').val('{}');
                     $('#sample-button-container').show();
+                    build_url();
 
                     break;
                 case 'delete-data':
@@ -363,6 +366,7 @@ $(function() {
                     $('#body').parent().hide();
                     $('#query').parent().show().val('');
                     $('#body').val('{}');
+                    build_url();
 
                     break;
                 case 'auth-register': {
