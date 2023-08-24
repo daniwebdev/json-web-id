@@ -174,7 +174,7 @@ $(function() {
     }
 
     function set_path(path='') {
-        let prefix  = location.href;
+        let prefix  = BASE_URL;
         let namespace = $('#namespace').val();
         let url     = prefix + 'app' + path;
 
