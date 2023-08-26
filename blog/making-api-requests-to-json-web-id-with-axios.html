@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making API Requests to json.web.id with Axios</title>
+    <meta name="description" content="{description}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style-blog.css">
+
+    <link rel="stylesheet" href="../js/highlight/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h4>JSON.WEB.ID</h4>
+
+            <div>
+                <a href="/">HOME</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Making API Requests to json.web.id with Axios</h1>
+    
+        <article>
+            <p>In this guide, we'll walk you through how to use the Axios library in Node.js to interact with the json.web.id API. We'll cover different scenarios such as registering users, logging in, retrieving data, creating new data, updating existing data, and deleting data. The json.web.id API requires an API key for authorization, so we'll make sure to include that in our requests as well.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you start, make sure you have Node.js installed on your system. You'll also need to install the Axios library, which simplifies HTTP requests, by running:</p>
+<pre><code>npm install axios
+</code></pre>
+<h2 id="registeringauser">Registering a User</h2>
+<p>To register a new user with the json.web.id API, you can use the following Axios code:</p>
+<pre><code class="javascript language-javascript">const axios = require('axios');
+
+const url = 'https://json.web.id/app/register';
+const headers = {
+    'Content-Type': 'application/json'
+};
+const data = {
+    email: 'john@doe.com',
+    password: 'secret',
+    name: 'John Doe',
+    phone: '+62857123123123'
+};
+
+axios.post(url, data, { headers })
+    .then(response =&gt; {
+        console.log(response.data);
+    })
+    .catch(error =&gt; {
+        console.error('An error occurred:', error);
+    });
+</code></pre>
+<h2 id="loggingin">Logging In</h2>
+<p>To log in to the json.web.id API, you can use the following Axios code:</p>
+<pre><code class="javascript language-javascript">const axios = require('axios');
+
+const url = 'https://json.web.id/app/login';
+const headers = {
+    'Content-Type': 'application/json'
+};
+const data = {
+    email: 'john@doe.com',
+    password: 'secret'
+};
+
+axios.post(url, data, { headers })
+    .then(response =&gt; {
+        console.log(response.data);
+    })
+    .catch(error =&gt; {
+        console.error('An error occurred:', error);
+    });
+</code></pre>
+<h2 id="retrievingdata">Retrieving Data</h2>
+<p>To fetch data from the json.web.id API, you can use the following Axios code:</p>
+<pre><code class="javascript language-javascript">const axios = require('axios');
+
+const url = 'https://json.web.id/app/todo';
+const apiKey = 'your-api-key'; // Replace with your actual API key
+const headers = {
+    'X-Api-Key': apiKey,
+    'Content-Type': 'application/json'
+};
+const data = {};
+
+axios.get(url, { headers, data })
+    .then(response =&gt; {
+        console.log(response.data);
+    })
+    .catch(error =&gt; {
+        console.error('An error occurred:', error);
+    });
+</code></pre>
+<h2 id="creatingdata">Creating Data</h2>
+<p>To create new data using the json.web.id API, you can use the following Axios code:</p>
+<pre><code class="javascript language-javascript">const axios = require('axios');
+
+const url = 'https://json.web.id/app/todo';
+const apiKey = 'your-api-key'; // Replace with your actual API key
+const headers = {
+    'X-Api-Key': apiKey,
+    'Content-Type': 'application/json'
+};
+const data = {
+    title: 'Write Content',
+    description: 'Write Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    status: 0
+};
+
+axios.post(url, data, { headers })
+    .then(response =&gt; {
+        console.log(response.data);
+    })
+    .catch(error =&gt; {
+        console.error('An error occurred:', error);
+    });
+</code></pre>
+<h2 id="updatingdata">Updating Data</h2>
+<p>To update existing data using the json.web.id API, you can use the following Axios code:</p>
+<pre><code class="javascript language-javascript">const axios = require('axios');
+
+const uuid = '5345eb9b-1b1d-488d-a6ec-aa5e23558098'; // Replace with the actual UUID
+const url = `https://json.web.id/app/todo?uuid=${uuid}`;
+const apiKey = 'your-api-key'; // Replace with your actual API key
+const headers = {
+    'X-Api-Key': apiKey,
+    'Content-Type': 'application/json'
+};
+const data = {
+    title: 'Write Content (Update)',
+    description: 'Write Update Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    status: 1
+};
+
+axios.put(url, data, { headers })
+    .then(response =&gt; {
+        console.log(response.data);
+    })
+    .catch(error =&gt; {
+        console.error('An error occurred:', error);
+    });
+</code></pre>
+<h2 id="deletingdata">Deleting Data</h2>
+<p>To delete data using the json.web.id API, you can use the following Axios code:</p>
+<pre><code class="javascript language-javascript">const axios = require('axios');
+
+const uuid = '5345eb9b-1b1d-488d-a6ec-aa5e23558098'; // Replace with the actual UUID
+const url = `https://json.web.id/app/todo?uuid=${uuid}`;
+const apiKey = 'your-api-key'; // Replace with your actual API key
+const headers = {
+    'X-Api-Key': apiKey,
+    'Content-Type': 'application/json'
+};
+
+axios.delete(url, { headers })
+    .then(response =&gt; {
+        console.log(response.data);
+    })
+    .catch(error =&gt; {
+        console.error('An error occurred:', error);
+    });
+</code></pre>
+<p>In this guide, we've shown you how to use the Axios library to interact with the json.web.id API. By following these examples, you can perform user registration, login, data retrieval, data creation, data updating, and data deletion with ease.</p>
+<p>Remember to replace placeholders such as <code>your-api-key</code> and UUIDs with actual values. With Axios, making API requests becomes more straightforward and manageable in your Node.js applications.</p>
+        </article>
+    </main>
+
+    <script src="../js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "showdown": "^2.1.0",
+    "yaml": "^2.3.1"
+  }
+}
