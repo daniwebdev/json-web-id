@@ -26,7 +26,7 @@ for(let item of fs.readdirSync(__dirname+"/_src")) {
 
         fs.writeFileSync(dirOutput + `/${data.slug}.html`, output, 'utf-8');
 
-        links += `<li><a href="/blog/${data.slug}">${data.title}</a></li>`;
+        links += `<li><a href="/blog/${data.slug}.html">${data.title}</a></li>`;
 
         console.log(`Generated:./blog/${data.slug}.html}`)
     }
