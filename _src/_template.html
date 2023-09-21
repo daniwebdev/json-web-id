@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{lang}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <meta name="description" content="{description}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -15,6 +16,22 @@
     <link rel="stylesheet" href="../css/style-blog.css">
 
     <link rel="stylesheet" href="../js/highlight/styles/atom-one-dark.min.css">
+
+    <script type="application/ld+json">
+        {
+           "@context": "http://schema.org",
+           "@type": "Article",
+           "headline": "{title}",
+           "description": "{description}",
+           "author": "{author}",
+           "datePublished": "{date}",
+           "image": "{image}",
+           "publisher": {
+              "@type": "Organization",
+              "name": "JSON.web.id"
+           }
+        }
+    </script>
 </head>
 <body>
     <header>

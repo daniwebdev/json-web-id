@@ -2,6 +2,8 @@ title: "Making API Requests to json.web.id with Axios"
 date: 2020-05-28T12:00:00+02:00
 tags: ["javascript", "json.web.id", "axios"]
 slug: making-api-requests-to-json-web-id-with-axios
+image:
+author: daniwebdev
 description:
 body: |-
     In this guide, we'll walk you through how to use the Axios library in Node.js to interact with the json.web.id API. We'll cover different scenarios such as registering users, logging in, retrieving data, creating new data, updating existing data, and deleting data. The json.web.id API requires an API key for authorization, so we'll make sure to include that in our requests as well.
@@ -74,7 +76,7 @@ body: |-
     const axios = require('axios');
 
     const url = 'https://json.web.id/app/todo';
-    const apiKey = 'your-api-key'; // Replace with your actual API key
+    const apiKey = 'your-api-key'; // Replace with your dummy API key
     const headers = {
         'X-Api-Key': apiKey,
         'Content-Type': 'application/json'
@@ -98,7 +100,7 @@ body: |-
     const axios = require('axios');
 
     const url = 'https://json.web.id/app/todo';
-    const apiKey = 'your-api-key'; // Replace with your actual API key
+    const apiKey = 'your-api-key'; // Replace with your dummy API key
     const headers = {
         'X-Api-Key': apiKey,
         'Content-Type': 'application/json'
@@ -127,7 +129,7 @@ body: |-
 
     const uuid = '5345eb9b-1b1d-488d-a6ec-aa5e23558098'; // Replace with the actual UUID
     const url = `https://json.web.id/app/todo?uuid=${uuid}`;
-    const apiKey = 'your-api-key'; // Replace with your actual API key
+    const apiKey = 'your-api-key'; // Replace with your dummy API key
     const headers = {
         'X-Api-Key': apiKey,
         'Content-Type': 'application/json'
@@ -156,7 +158,7 @@ body: |-
 
     const uuid = '5345eb9b-1b1d-488d-a6ec-aa5e23558098'; // Replace with the actual UUID
     const url = `https://json.web.id/app/todo?uuid=${uuid}`;
-    const apiKey = 'your-api-key'; // Replace with your actual API key
+    const apiKey = 'your-api-key'; // Replace with your dummy API key
     const headers = {
         'X-Api-Key': apiKey,
         'Content-Type': 'application/json'

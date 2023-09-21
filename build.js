@@ -21,8 +21,14 @@ for(let item of fs.readdirSync(__dirname+"/_src")) {
         let data = YAML.parse( fs.readFileSync(__dirname + `/_src/${item}`, 'utf-8') );
         let html  = converter.makeHtml(data.body);
 
-        let output = template.replace(/{title}/g, data.title)
-                             .replace(/{body}/g, html);
+        let output = template
+                            .replace(/{title}/g, data.title)
+                            .replace(/{description}/g, data.description)
+                            .replace(/{date}/g, data.date)
+                            .replace(/{author}/g, data.author ?? 'anonymous')
+                            .replace(/{image}/g, data.image)
+                            .replace(/{lang}/g, data.lang ?? 'en')
+                            .replace(/{body}/g, html);
 
         fs.writeFileSync(dirOutput + `/${data.slug}.html`, output, 'utf-8');
 

@@ -57,6 +57,14 @@ pre {
     font-weight: 300;
 }
 
+pre code {
+    border-radius: .5rem;
+}
+
+strong {
+    font-weight: 600;
+}
+
 .container {
     max-width: 800px;
     margin: auto;
@@ -94,10 +102,11 @@ main {
 }
 
 h1 {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.8rem;
 }
 h2 {
+    font-weight: 600;
     font-size: 1.5rem;
 }
 h3 {
@@ -109,6 +118,15 @@ p {
     line-height: 1.5rem;
 }
 
-h1, h2, h3,p, pre, blockquote {
+h1, h2, h3,p, pre, ul, blockquote {
     margin-bottom: 1.3rem;
+}
+
+ul {
+    list-style: disc;
+    margin-bottom: 2rem;
+}
+ul li {
+    line-height: 1.5rem;
+    margin-left: 1rem;
 }
